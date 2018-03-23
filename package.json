@@ -1,0 +1,19 @@
+{
+  "name": "expresso",
+  "version": "1.0.0",
+  "description": "a boilerplate web app build with express, handlebars, and mongo. ",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidsonCollege/expresso.git"
+  },
+  "author": "John-Michael Murphy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DavidsonCollege/expresso/issues"
+  },
+  "homepage": "https://github.com/DavidsonCollege/expresso#readme"
+}
