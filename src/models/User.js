@@ -15,7 +15,8 @@ var UserSchema = new mongoose.Schema(
       unique: false,
       required: [true, "can't be blank"],
       match: [/\S+@\S+\.\S+/, "is invalid"]
-    }
+    },
+    password: { type: String, required: true }
   },
   { timestamps: true }
 );
