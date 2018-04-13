@@ -2,7 +2,7 @@ module.exports = {
   username: "admin",
   password: "admin",
   unique_name: "admin",
-  firstName: "Julie",
+  firstName: "Huseyin",
   lastName: "Wildcat",
   id: "1"
 };

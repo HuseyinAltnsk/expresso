@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 router.use("/", require("./home"));
 router.use("/user", require("./user"));
-
+router.use("/todo", require("./todo"));  //everything (URLs) after /todo will "require" ./todo URL
 // catch 404 and forward to error handler
 router.use((req, res, next) => {
   var err = new Error("Not Found");

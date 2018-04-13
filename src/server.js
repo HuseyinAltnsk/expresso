@@ -9,11 +9,11 @@ const path = require("path");
 const https = require("https");
 const express = require("express");
 const favicon = require("serve-favicon");
-const morgan = require("morgan");
+const morgan = require("morgan");  //does error logging
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const passport = require("passport");
+const passport = require("passport");   //allows us to login logout
 const localStrategy = require("passport-local");
 const oauth2 = require("passport-azure-ad-oauth2");
 const jwt = require("jsonwebtoken");
@@ -85,6 +85,21 @@ app.set("view engine", "ejs");
  * http://www.passportjs.org/ does this for us. Here, we initialize the package.
  */
 
+function a(req, res, next){
+  console.log("a");
+  next();
+}
+function b(req, res, next){
+  console.log("b");
+  next();
+}
+function c(req, res, next){
+  console.log("c");
+  //console.log(req.body);
+  next();
+}
+app.use("/hello", a,b,c);
+
 // Setup up passport
 app.use(passport.initialize());
 // Setup sessions handling in passport.
@@ -118,7 +133,7 @@ Authentication
  * You don't need to know how this works.
  */
 
-let fakeUser = require("./utils/fakeuser");
+let fakeUser = require("./utils/fakeUser");
 
 // https://stackoverflow.com/questions/27637609/understanding-passport-serialize-deserialize
 passport.serializeUser((user, done) => {
@@ -154,12 +169,13 @@ if (process.env.NODE_ENV === "PROD") {
     })
   );
 }
-
+/*
 // Force all users to login.
 app.use((req, res, next) => {
   if (req.isAuthenticated()) next();
   else res.redirect("/login");
 });
+*/
 
 // Force all users to login.
 app.use("/logout", (req, res) => {

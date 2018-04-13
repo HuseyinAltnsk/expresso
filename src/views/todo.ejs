@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+
+
+  <form class="px-4 py-3" action="/todo" method="post">
+    <div class="form-group">
+      <label for="item">TODO LIST</label>
+      <input type="text" name="item" class="form-control" id="item" placeholder="todo item here">
+    </div>
+    <div >
+      <ol>
+        <% for(var i=0; i < todo.length; i++) { %>
+        <li><%= todo[i] %></li>
+        <button type="submit" class="btn btn-primary" onclick="remove()">Sign in</button>
+        <% } %>
+      </ol>
+    </div>
+    <button type="submit" class="btn btn-primary">Sign in</button>
+  </form>
+
+<%- include('partials/footer') %>
